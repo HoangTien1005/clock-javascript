@@ -6,6 +6,8 @@ let MINUTE_RADIUS;
 let HOUR_RADIUS;
 let centerX;
 let centerY;
+let PI = Math.PI;
+let RADIUS;
 let Digital = document.querySelector("#digital");
 
 let hourHand = 0;
@@ -14,16 +16,22 @@ let secondHand = 0;
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  WIDTH = windowWidth;
+  HEIGHT = windowHeight;
+  RADIUS = (HEIGHT * 3) / 5;
+  CLOCK_RADIUS = RADIUS * 1.1;
+  SECOND_RADIUS = RADIUS * 0.5;
+  MINUTE_RADIUS = RADIUS * 0.45;
+  HOUR_RADIUS = RADIUS * 0.37;
+  centerX = WIDTH / 2;
+  centerY = HEIGHT / 2;
 }
 
 function setup() {
   WIDTH = windowWidth;
   HEIGHT = windowHeight;
   canvas = createCanvas(WIDTH, HEIGHT);
-  const PI = Math.PI;
-
-  const RADIUS = (HEIGHT * 3) / 5;
-
+  RADIUS = (HEIGHT * 3) / 5;
   CLOCK_RADIUS = RADIUS * 1.1;
   SECOND_RADIUS = RADIUS * 0.5;
   MINUTE_RADIUS = RADIUS * 0.45;
